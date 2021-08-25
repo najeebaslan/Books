@@ -1,0 +1,44 @@
+schema {
+  query: Query
+  mutation: Mutuation
+}
+
+# this is a single book
+type Book {
+  # this is the book id
+  id: ID!
+  # name
+  name: String!
+  # owner
+  owner: String
+  # countPepper
+  countPepper: Int
+  # description
+  createdAt: String
+  # updatedAt
+  updatedAt: String
+}
+
+# bookInput
+input BookInput {
+  # name
+  name: String
+  # owner
+  owner: String
+  tags: [String]
+}
+
+# this  Mutuation Book
+type Mutuation {
+  addBooks(
+    # this is the input type
+    book: BookInput
+  ): Book
+}
+
+# this is the query type
+type Query {
+  # this is the list of words returned
+  book(top: Int): [Book]
+}
+
